@@ -1,5 +1,7 @@
 package com.mitocode.blog.blogapi.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,7 +30,7 @@ public class PostController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<PostDto> createPost(@RequestBody PostDto postDto){
+	public ResponseEntity<PostDto> createPost(@Valid@RequestBody PostDto postDto){
 		return new ResponseEntity<>(postService.createPost(postDto),HttpStatus.CREATED);
 	}
 	
